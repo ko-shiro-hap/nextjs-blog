@@ -1,4 +1,5 @@
 import { client } from "../../libs/client";
+import styles from "../../styles/Home.module.scss";
 
 //SSG
 export const getStaticProps = async (context: any) => {
@@ -24,10 +25,10 @@ export const getStaticPaths = async () => {
 
 export default function BlogId({ blog }: any) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
-      <div>{blog.body}</div>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{blog.title}</h1>
+      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={styles.post}></div>
     </main>
   )
 }

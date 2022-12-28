@@ -1,6 +1,6 @@
 import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import { client } from "../libs/client";
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import Link from "next/link";
 
 //SSG
