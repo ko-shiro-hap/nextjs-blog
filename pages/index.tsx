@@ -10,18 +10,23 @@ export const getStaticProps = async() => {
   const data = await client.get({endpoint: "blog"});
     // カテゴリーコンテンツの取得
   const categoryData = await client.get({endpoint: "categories"});
+    // タグコンテンツの取得
+  const tagData = await client.get({endpoint: "tags"});
   return {
     props: {
       blog: data.contents,
       category: categoryData.contents,
+      tag: tagData.contents,
     }
   }
 }
 
-export default function Home({blog, category}: any) {
+export default function Home({blog, category, tag}: any) {
+  console.log(tag)
   return (
     <div className={styles.container}>
       {/* ブログコンテンツの表示 */}
+      <div>ブログ</div>
       {blog.map((blog: any) => (
         <li key={blog.id}>
           <Link href={`blog/${blog.id}`}>
@@ -30,10 +35,19 @@ export default function Home({blog, category}: any) {
         </li>
       ))}
       {/* カテゴリーコンテンツの表示 */}
+      <p>カテゴリー</p>
       {category.map((category: any) => (
         <li key={category.id}>
           <Link href={`category/${category.id}`}>
             {category.name}
+          </Link>
+        </li>
+      ))}
+      <p>タグ</p>
+      {tag.map((tag: any) => (
+        <li key={tag.id}>
+          <Link href={`tag/${tag.id}`}>
+            {tag.name}
           </Link>
         </li>
       ))}
