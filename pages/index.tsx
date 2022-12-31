@@ -22,7 +22,7 @@ export const getStaticProps = async() => {
 }
 
 export default function Home({blog, category, tag}: any) {
-  console.log(tag)
+
   return (
     <div className={styles.container}>
       {/* ブログコンテンツの表示 */}
