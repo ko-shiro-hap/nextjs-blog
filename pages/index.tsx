@@ -29,7 +29,7 @@ export default function Home({blog, category}: any) {
           </Link>
         </li>
       ))}
-      {/* カテゴリーコンテンツ */}
+      {/* カテゴリーコンテンツの表示 */}
       {category.map((category: any) => (
         <li key={category.id}>
           <Link href={`category/${category.id}`}>

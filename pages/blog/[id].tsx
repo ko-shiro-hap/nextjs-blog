@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-typos */
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.scss";
 
@@ -24,6 +25,7 @@ export const getStaticPaths = async () => {
     fallback: false,
   }
 }
+
 
 export default function BlogId({ blog }: any) {
   return (
