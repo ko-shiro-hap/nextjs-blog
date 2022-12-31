@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-typos */
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.scss";
 
 //SSG
+// データをテンプレートに受け渡す部分の処理
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
   const data = await client.get({ endpoint: "blog", contentId: id });
@@ -13,6 +15,7 @@ export const getStaticProps = async (context: any) => {
   }
 }
 
+// 静的生成のためのパスを指定
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "blog"})
 
@@ -23,12 +26,13 @@ export const getStaticPaths = async () => {
   }
 }
 
+
 export default function BlogId({ blog }: any) {
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
       <p className={styles.publishedAt}>{blog.publishedAt}</p>
-      <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={styles.post}></div>
+      <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={styles.post} />
     </main>
   )
 }
