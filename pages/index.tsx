@@ -2,12 +2,13 @@ import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import { client } from "../libs/client";
 import styles from '../styles/Home.module.scss'
 import Link from "next/link";
+import { Pagination } from "../components/Pagination";
 
 //SSG
 // データをテンプレートに受け渡す部分の処理
 export const getStaticProps = async() => {
   // ブログコンテンツの取得
-  const data = await client.get({endpoint: "blog"});
+  const data = await client.get({endpoint: "blog", queries: {limit: 5, offset: 0}});
     // カテゴリーコンテンツの取得
   const categoryData = await client.get({endpoint: "categories"});
     // タグコンテンツの取得
@@ -17,11 +18,12 @@ export const getStaticProps = async() => {
       blog: data.contents,
       category: categoryData.contents,
       tag: tagData.contents,
+      totalCount: data.totalCount,
     }
   }
 }
 
-export default function Home({blog, category, tag}: any) {
+export default function Home({blog, category, tag, totalCount}: any) {
 
   return (
     <div className={styles.container}>
@@ -51,6 +53,9 @@ export default function Home({blog, category, tag}: any) {
           </Link>
         </li>
       ))}
+      {/* ペジネーション */}
+      <p>ペジネーション</p>
+      <Pagination totalCount={totalCount} />
     </div>
   )
 }
