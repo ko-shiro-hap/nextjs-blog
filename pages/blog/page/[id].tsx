@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 
 // データを取得
 export const getStaticProps = async (context: any) => {
-  const id: string = context.params.id;
+  const id: number = context.params.id;
 
   const data: any = await client.get({ endpoint: "blog", queries: {offset: (id - 1) * 5, limit: 5} })
 
