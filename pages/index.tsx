@@ -2,6 +2,7 @@ import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
 import { client } from "../libs/client";
 import styles from '../styles/Home.module.scss'
 import Link from "next/link";
+import { Pagination } from "../components/Pagination";
 
 //SSG
 // データをテンプレートに受け渡す部分の処理
@@ -51,6 +52,9 @@ export default function Home({blog, category, tag}: any) {
           </Link>
         </li>
       ))}
+      {/* ペジネーション */}
+      <p>ペジネーション</p>
+      <Pagination totalCount={20} />
     </div>
   )
 }
