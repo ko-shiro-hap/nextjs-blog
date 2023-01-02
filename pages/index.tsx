@@ -26,7 +26,10 @@ export const getStaticProps = async() => {
 export default function Home({blog, category, tag, totalCount}: any) {
 
   return (
-    <div className={styles.container}>
+    <div>
+          <h1 className="text-3xl">
+      Hello world!
+    </h1>
       {/* ブログコンテンツの表示 */}
       <div>ブログ</div>
       {blog.map((blog: any) => (
