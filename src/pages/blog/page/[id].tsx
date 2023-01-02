@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Pagination } from "../../../components/Pagination";
-import { client } from "../../../libs/client";
+import { client } from "../../../../libs/client";
 
 const PRE_PAGE: number = 5;
 

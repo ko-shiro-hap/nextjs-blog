@@ -1,20 +1,20 @@
 import Link from "next/link";
-import { client } from "../../libs/client";
+import { client } from "../../../libs/client";
 import styles from "../../styles/Home.module.scss";
 
 
 // 静的生成のためのパスを指定
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: "tags" });
+  const data = await client.get({ endpoint: "categories" });
 
-  const paths = data.contents.map((content: any) => `/tag/${content.id}`);
+  const paths = data.contents.map((content: any) => `/category/${content.id}`);
   return { paths, fallback: false };
 };
 
 // データをテンプレートに受け渡す部分の処理
 export const getStaticProps = async (context: any) => {
   const id = context.params.id;
-  const data = await client.get({ endpoint: "blog", queries: { filters: `tags[contains]${id}` } });
+  const data = await client.get({ endpoint: "blog", queries: { filters: `category[equals]${id}` } });
 
   return {
     props: {

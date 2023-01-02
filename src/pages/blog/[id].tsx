@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-typos */
-import { client } from "../../libs/client";
-import styles from "../../styles/Home.module.scss";
+import { client } from "../../../libs/client";
 
 //SSG
 // データをテンプレートに受け渡す部分の処理
@@ -29,10 +28,10 @@ export const getStaticPaths = async () => {
 
 export default function BlogId({ blog }: any) {
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
-      <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className={styles.post} />
+    <main className="">
+      <h1 className="">{blog.title}</h1>
+      <p className="">{blog.publishedAt}</p>
+      <div dangerouslySetInnerHTML={{__html: `${blog.body}`}} className="" />
     </main>
   )
 }
