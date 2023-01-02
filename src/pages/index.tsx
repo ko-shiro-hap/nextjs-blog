@@ -1,7 +1,7 @@
 import { BLOCKED_PAGES } from "next/dist/shared/lib/constants";
-import { client } from "../libs/client";
+import { client } from "../../libs/client";
 import Link from "next/link";
-import { Pagination } from "../src/components/Pagination";
+import { Pagination } from "../components/Pagination";
 
 //SSG
 // データをテンプレートに受け渡す部分の処理

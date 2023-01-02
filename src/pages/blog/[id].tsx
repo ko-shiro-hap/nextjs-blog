@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-typos */
-import { client } from "../../libs/client";
+import { client } from "../../../libs/client";
 
 //SSG
 // データをテンプレートに受け渡す部分の処理
